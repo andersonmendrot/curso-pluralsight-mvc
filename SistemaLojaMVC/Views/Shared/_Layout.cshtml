@@ -1,0 +1,66 @@
+﻿<!--Base para as outras páginas-->
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/content/font.css">
+    <link rel="stylesheet" type="text/css" href="~/content/site.css" />
+    <!--<script src="~/lib/jquery/jquery.js"></script>-->
+    <!--<script src="~/lib/bootstrap/js/bootstrap.js"></script>-->
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.js"></script>-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Bethany's Pie Shop</title>
+</head>
+    <body class="teste">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    Menu
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                   <ul class="nav navbar-nav">
+                       <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                       <li><a asp-controller="Pie" asp-action="List">Pies</a></li>
+                       @await Component.InvokeAsync("ShoppingCartSummary")
+                   </ul>
+                 </div>
+                <!--<div class="row" id="menu">
+                    <a asp-controller="Home" asp-action="Index">Home</a>
+                    <a asp-controller="Pie" asp-action="List">Pies</a>
+                    @await Component.InvokeAsync("ShoppingCartSummary")
+                </div>-->
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <p class="lead">
+                        <img class="img-responsive" alt="Bethany's Pie Shop'" src="~/Images/bethanylogo.png"  />
+                    </p>
+                </div>
+                <div class="col-md-9">
+                    <row>
+                        @RenderBody() <!--aqui será substituido pelo codigo de cada view --->
+                    </row>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
